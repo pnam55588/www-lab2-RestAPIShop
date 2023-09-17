@@ -1,14 +1,23 @@
 package fit.iuh.wwwlab2shop.models;
 
 import fit.iuh.wwwlab2shop.enums.ProductStatus;
+import jakarta.persistence.*;
 
-public class Product {
+import java.io.Serializable;
+
+@Entity
+@Table(name = "product")
+public class Product implements Serializable {
 //    product (product_id, name, description, unit, manufacturer_name, status)
+    @Id
+    @Column(name = "product_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     private String description;
     private int unit;
-    private String manufacturer_name;
+    @Column(name = "manufacturer_name")
+    private String manufacturerName;
     private ProductStatus status;
 
     public int getId() {
@@ -43,12 +52,12 @@ public class Product {
         this.unit = unit;
     }
 
-    public String getManufacturer_name() {
-        return manufacturer_name;
+    public String getManufacturerName() {
+        return manufacturerName;
     }
 
-    public void setManufacturer_name(String manufacturer_name) {
-        this.manufacturer_name = manufacturer_name;
+    public void setManufacturerName(String manufacturer_name) {
+        this.manufacturerName = manufacturer_name;
     }
 
     public ProductStatus getStatus() {
@@ -59,12 +68,12 @@ public class Product {
         this.status = status;
     }
 
-    public Product(int id, String name, String description, int unit, String manufacturer_name, ProductStatus status) {
+    public Product(int id, String name, String description, int unit, String manufacturerName, ProductStatus status) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.unit = unit;
-        this.manufacturer_name = manufacturer_name;
+        this.manufacturerName = manufacturerName;
         this.status = status;
     }
 
@@ -78,7 +87,7 @@ public class Product {
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", unit=" + unit +
-                ", manufacturer_name='" + manufacturer_name + '\'' +
+                ", manufacturer_name='" + manufacturerName + '\'' +
                 ", status=" + status +
                 '}';
     }

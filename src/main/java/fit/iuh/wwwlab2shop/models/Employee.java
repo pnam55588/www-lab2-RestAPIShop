@@ -1,11 +1,22 @@
 package fit.iuh.wwwlab2shop.models;
 
 import fit.iuh.wwwlab2shop.enums.EmployeeStatus;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import org.joda.time.DateTime;
 
-public class Employee {
+import java.io.Serializable;
+
+@Entity
+@Table(name = "employee")
+public class Employee implements Serializable {
 //    employee (emp_id, full_name, dob, email, phone, address, status)
+    @Id
+    @Column(name = "emp_id")
     private int id;
+    @Column(name = "full_name")
     private String fullName;
     private DateTime dob;
     private String email;

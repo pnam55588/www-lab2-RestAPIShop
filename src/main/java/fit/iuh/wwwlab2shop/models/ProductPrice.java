@@ -1,10 +1,21 @@
 package fit.iuh.wwwlab2shop.models;
 
+import jakarta.persistence.*;
 import org.joda.time.DateTime;
 
-public class ProductPrice {
+import java.io.Serializable;
+
+@Entity
+@Table(name = "product_price")
+public class ProductPrice implements Serializable {
 //    product_price (product_id, price_date_time, price, note)?
+    @Id
+    @ManyToOne
+    @JoinColumn(name = "product_id")
     private Product product;
+    @Id
+    @Column(name = "price_date_time")
+    @Temporal(TemporalType.TIMESTAMP)
     private DateTime priceDateTime;
     private double price;
     private String note;

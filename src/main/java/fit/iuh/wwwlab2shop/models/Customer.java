@@ -1,23 +1,28 @@
 package fit.iuh.wwwlab2shop.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.io.Serializable;
 
 @Entity
-public class Customer {
+@Table(name = "customer")
+public class Customer implements Serializable {
 //    customer (cust_id, cust_name, email, phone, address)
     @Id
+    @Column(name = "cust_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String fullName;
+    @Column(name = "cust_name")
+    private String custName;
     private String email;
     private String phone;
     private String address;
 
     public Customer(){}
 
-    public Customer(int id, String fullName, String email, String phone, String address) {
+    public Customer(int id, String custName, String email, String phone, String address) {
         this.id = id;
-        this.fullName = fullName;
+        this.custName = custName;
         this.email = email;
         this.phone = phone;
         this.address = address;
@@ -31,12 +36,12 @@ public class Customer {
         this.id = id;
     }
 
-    public String getFullName() {
-        return fullName;
+    public String getCustName() {
+        return custName;
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+    public void setCustName(String custName) {
+        this.custName = custName;
     }
 
     public String getEmail() {
@@ -67,7 +72,7 @@ public class Customer {
     public String toString() {
         return "Customer{" +
                 "id=" + id +
-                ", fullName='" + fullName + '\'' +
+                ", fullName='" + custName + '\'' +
                 ", email='" + email + '\'' +
                 ", phone='" + phone + '\'' +
                 ", address='" + address + '\'' +

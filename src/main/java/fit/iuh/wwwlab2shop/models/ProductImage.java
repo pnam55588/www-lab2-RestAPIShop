@@ -1,8 +1,19 @@
 package fit.iuh.wwwlab2shop.models;
 
-public class ProductImage {
+import jakarta.persistence.*;
+
+import java.io.Serializable;
+
+@Entity
+@Table(name = "product_image")
+public class ProductImage implements Serializable {
 //    product_image (product_id, image_id, path, alternative
+    @ManyToOne
+    @JoinColumn(name = "product_id")
     private Product product;
+    @Id
+    @JoinColumn(name = "image_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String path;
     private String alternative;

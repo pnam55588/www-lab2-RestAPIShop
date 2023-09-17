@@ -1,13 +1,27 @@
 package fit.iuh.wwwlab2shop.models;
 
+import jakarta.persistence.*;
 import org.joda.time.DateTime;
 
-public class Orders {
+import java.io.Serializable;
+
+@Entity
+@Table(name = "orders")
+public class Orders implements Serializable {
 //    order (order_id, order_date, emp_id, cust_id)
 
+    @Id
+    @Column(name = "order_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(name = "order_date")
     private DateTime orderDate;
+
+    @ManyToOne
+    @JoinColumn(name = "emp_id")
     private Employee employee;
+    @ManyToOne
+    @JoinColumn(name = "cust_id")
     private Customer customer;
 
     public Orders() {

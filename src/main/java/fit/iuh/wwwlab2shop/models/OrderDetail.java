@@ -1,8 +1,20 @@
 package fit.iuh.wwwlab2shop.models;
 
-public class OrderDetail {
+import jakarta.persistence.*;
+
+import java.io.Serializable;
+
+@Entity
+@Table(name = "order_detail")
+public class OrderDetail implements Serializable {
 //    order_detail (order_id, product_id, quantity, price, note)
+    @Id
+    @ManyToOne
+    @JoinColumn(name = "order_id")
     private Orders order;
+    @Id
+    @ManyToOne
+    @JoinColumn(name = "product_id")
     private Product product;
     private int quantity;
     private double price;
