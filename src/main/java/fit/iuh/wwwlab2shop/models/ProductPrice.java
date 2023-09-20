@@ -14,8 +14,7 @@ public class ProductPrice implements Serializable {
     @JoinColumn(name = "product_id")
     private Product product;
     @Id
-    @Column(name = "price_date_time")
-    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "price_date_time", columnDefinition = "datetime")
     private DateTime priceDateTime;
     private double price;
     private String note;

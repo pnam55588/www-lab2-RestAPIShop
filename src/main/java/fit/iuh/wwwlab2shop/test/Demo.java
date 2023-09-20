@@ -10,8 +10,8 @@ import org.mariadb.jdbc.Driver;
 public class Demo {
 
     public static void main(String[] args) {
-//        EntityManager em = JPAConnection.getInstance().getEm();
-        CustomerRepository customerRepository = new CustomerRepository();
+        EntityManager em = JPAConnection.getInstance().getEm();
+//        CustomerRepository customerRepository = new CustomerRepository();
 
     }
 

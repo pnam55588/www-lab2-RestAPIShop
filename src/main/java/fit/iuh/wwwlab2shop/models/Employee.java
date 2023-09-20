@@ -18,6 +18,7 @@ public class Employee implements Serializable {
     private int id;
     @Column(name = "full_name")
     private String fullName;
+    @Column(columnDefinition = "datetime")
     private DateTime dob;
     private String email;
     private String address;

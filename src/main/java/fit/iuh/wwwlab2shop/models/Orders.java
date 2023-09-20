@@ -14,7 +14,7 @@ public class Orders implements Serializable {
     @Column(name = "order_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name = "order_date")
+    @Column(name = "order_date", columnDefinition = "datetime")
     private DateTime orderDate;
 
     @ManyToOne
