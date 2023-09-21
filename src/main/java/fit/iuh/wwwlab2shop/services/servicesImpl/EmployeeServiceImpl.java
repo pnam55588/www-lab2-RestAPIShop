@@ -34,7 +34,10 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public boolean changeStatus(int id, EmployeeStatus status) {
-        return employeeRepository.changeStatus(id,status);
+    public boolean activeEmployee(int id) {
+        return employeeRepository.activeEmployee(id);
     }
+
+    @Override
+    public boolean delete(int id){ return employeeRepository.delete(id);}
 }

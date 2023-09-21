@@ -28,7 +28,8 @@ public abstract class GenericCRUD <T> {
     public List<T> getAll(Class<T> clazz){
         EntityTransaction tr = em.getTransaction();
         try {
-            tr.begin();
+            if(!tr.isActive())
+                tr.begin();
             List<T> list = em.createNativeQuery("select * from " + clazz.getSimpleName() + " e", clazz).getResultList();
             tr.commit();
             return list;
@@ -40,7 +41,8 @@ public abstract class GenericCRUD <T> {
     public T findById(Class<T> clazz, int id){
         EntityTransaction tr = em.getTransaction();
         try {
-            tr.begin();
+            if(!tr.isActive())
+                tr.begin();
             T obj = em.find(clazz, id);
             tr.commit();
             return obj;
@@ -53,9 +55,9 @@ public abstract class GenericCRUD <T> {
     public boolean update(T t){
         EntityTransaction tr = em.getTransaction();
         try {
-            tr.begin();
+            if(!tr.isActive())
+                tr.begin();
             em.merge(t);
-            tr.commit();
             return true;
         }catch (Exception e){
             tr.rollback();

@@ -9,5 +9,6 @@ public interface EmployeeService{
     public boolean create(Employee emp);
     public boolean update(Employee emp);
     public Employee findById(int id);
-    public boolean changeStatus(int id, EmployeeStatus status);
+    public boolean activeEmployee(int id);
+    public boolean delete(int id);
 }

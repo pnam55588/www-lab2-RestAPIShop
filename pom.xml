@@ -87,11 +87,11 @@
           <version>2.0.9</version>
       </dependency>
       <!-- https://mvnrepository.com/artifact/org.jboss.weld.se/weld-se-core -->
-      <dependency>
-          <groupId>org.jboss.weld.se</groupId>
-          <artifactId>weld-se-core</artifactId>
-          <version>5.1.0.Final</version>
-      </dependency>
+<!--      <dependency>-->
+<!--          <groupId>org.jboss.weld.se</groupId>-->
+<!--          <artifactId>weld-se-core</artifactId>-->
+<!--          <version>5.1.0.Final</version>-->
+<!--      </dependency>-->
       <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.module/jackson-module-jaxb-annotations -->
 <!--      <dependency>-->
 <!--          <groupId>com.fasterxml.jackson.module</groupId>-->

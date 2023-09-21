@@ -1,6 +1,6 @@
 package fit.iuh.wwwlab2shop.resources;
 
-import fit.iuh.wwwlab2shop.enums.EmployeeStatus;
+
 import fit.iuh.wwwlab2shop.models.Employee;
 import fit.iuh.wwwlab2shop.services.EmployeeService;
 import fit.iuh.wwwlab2shop.services.servicesImpl.EmployeeServiceImpl;
@@ -12,7 +12,7 @@ import java.util.List;
 @Path("/employee")
 public class EmployeeResource {
 
-    private EmployeeService employeeService;
+    private final EmployeeService employeeService;
     public EmployeeResource(){
         this.employeeService = new EmployeeServiceImpl();
     }
@@ -66,9 +66,21 @@ public class EmployeeResource {
         }
     }
     @PUT
-    @Path("/updateStatus/{id}")
-    public Response changeStatus(@PathParam("id") int id,@QueryParam("status") EmployeeStatus status){
-        boolean changed = employeeService.changeStatus(id, status);
+    @Path("/activeEmployee/{id}")
+    public Response activeEmployee(@PathParam("id") int id){
+        boolean changed = employeeService.activeEmployee(id);
+        if(changed){
+            return Response.status(Response.Status.OK).entity("status changed success").build();
+        }else {
+            return Response.status(Response.Status.NOT_FOUND)
+                    .entity("Employee not found or status change failed")
+                    .build();
+        }
+    }
+    @PUT
+    @Path("/delete/{id}")
+    public Response delete(@PathParam("id") int id){
+        boolean changed = employeeService.delete(id);
         if(changed){
             return Response.status(Response.Status.OK).entity("status changed success").build();
         }else {
