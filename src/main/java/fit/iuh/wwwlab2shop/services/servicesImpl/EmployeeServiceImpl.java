@@ -1,33 +1,40 @@
 package fit.iuh.wwwlab2shop.services.servicesImpl;
 
+import fit.iuh.wwwlab2shop.enums.EmployeeStatus;
 import fit.iuh.wwwlab2shop.models.Employee;
+import fit.iuh.wwwlab2shop.repositories.EmployeeRepository;
 import fit.iuh.wwwlab2shop.services.EmployeeService;
 
 import java.util.List;
 
 public class EmployeeServiceImpl implements EmployeeService {
+
+    private final EmployeeRepository employeeRepository;
+    public EmployeeServiceImpl(){
+        this.employeeRepository = new EmployeeRepository();
+    }
     @Override
     public List<Employee> getAll() {
-        return null;
+        return employeeRepository.getAll(Employee.class);
     }
 
     @Override
     public boolean create(Employee emp) {
-        return false;
+        return employeeRepository.create(emp);
     }
 
     @Override
     public boolean update(Employee emp) {
-        return false;
+        return employeeRepository.update(emp);
     }
 
     @Override
     public Employee findById(int id) {
-        return null;
+        return employeeRepository.findById(Employee.class,id);
     }
 
     @Override
-    public boolean changeStatus(int id, int status) {
-        return false;
+    public boolean changeStatus(int id, EmployeeStatus status) {
+        return employeeRepository.changeStatus(id,status);
     }
 }

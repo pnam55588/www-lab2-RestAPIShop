@@ -1,10 +1,7 @@
 package fit.iuh.wwwlab2shop.models;
 
 import fit.iuh.wwwlab2shop.enums.EmployeeStatus;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import org.joda.time.DateTime;
 
 import java.io.Serializable;
@@ -15,6 +12,7 @@ public class Employee implements Serializable {
 //    employee (emp_id, full_name, dob, email, phone, address, status)
     @Id
     @Column(name = "emp_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(name = "full_name")
     private String fullName;
