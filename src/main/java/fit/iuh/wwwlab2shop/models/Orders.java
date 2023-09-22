@@ -1,9 +1,10 @@
 package fit.iuh.wwwlab2shop.models;
 
 import jakarta.persistence.*;
-import org.joda.time.DateTime;
+
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "orders")
@@ -15,7 +16,7 @@ public class Orders implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(name = "order_date", columnDefinition = "datetime")
-    private DateTime orderDate;
+    private LocalDateTime orderDate;
 
     @ManyToOne
     @JoinColumn(name = "emp_id")
@@ -27,7 +28,7 @@ public class Orders implements Serializable {
     public Orders() {
     }
 
-    public Orders(int id, DateTime orderDate, Employee employee, Customer customer) {
+    public Orders(int id, LocalDateTime orderDate, Employee employee, Customer customer) {
         this.id = id;
         this.orderDate = orderDate;
         this.employee = employee;
@@ -42,11 +43,11 @@ public class Orders implements Serializable {
         this.id = id;
     }
 
-    public DateTime getOrderDate() {
+    public LocalDateTime getOrderDate() {
         return orderDate;
     }
 
-    public void setOrderDate(DateTime orderDate) {
+    public void setOrderDate(LocalDateTime orderDate) {
         this.orderDate = orderDate;
     }
 

@@ -1,7 +1,8 @@
 package fit.iuh.wwwlab2shop.models;
 
 import jakarta.persistence.*;
-import org.joda.time.DateTime;
+import java.time.LocalDateTime;
+
 
 import java.io.Serializable;
 
@@ -15,14 +16,14 @@ public class ProductPrice implements Serializable {
     private Product product;
     @Id
     @Column(name = "price_date_time", columnDefinition = "datetime")
-    private DateTime priceDateTime;
+    private LocalDateTime priceDateTime;
     private double price;
     private String note;
 
     public ProductPrice() {
     }
 
-    public ProductPrice(Product product, DateTime priceDateTime, double price, String note) {
+    public ProductPrice(Product product, LocalDateTime priceDateTime, double price, String note) {
         this.product = product;
         this.priceDateTime = priceDateTime;
         this.price = price;
@@ -37,11 +38,11 @@ public class ProductPrice implements Serializable {
         this.product = product;
     }
 
-    public DateTime getPriceDateTime() {
+    public LocalDateTime getPriceDateTime() {
         return priceDateTime;
     }
 
-    public void setPriceDateTime(DateTime priceDateTime) {
+    public void setPriceDateTime(LocalDateTime priceDateTime) {
         this.priceDateTime = priceDateTime;
     }
 

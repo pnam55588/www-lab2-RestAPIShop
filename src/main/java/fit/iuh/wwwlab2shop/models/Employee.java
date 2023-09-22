@@ -2,9 +2,10 @@ package fit.iuh.wwwlab2shop.models;
 
 import fit.iuh.wwwlab2shop.enums.EmployeeStatus;
 import jakarta.persistence.*;
-import org.joda.time.DateTime;
+
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "employee")
@@ -17,7 +18,7 @@ public class Employee implements Serializable {
     @Column(name = "full_name")
     private String fullName;
     @Column(columnDefinition = "datetime")
-    private DateTime dob;
+    private LocalDateTime dob;
     private String email;
     private String address;
     private EmployeeStatus status;
@@ -38,11 +39,11 @@ public class Employee implements Serializable {
         this.fullName = fullName;
     }
 
-    public DateTime getDob() {
+    public LocalDateTime getDob() {
         return dob;
     }
 
-    public void setDob(DateTime dob) {
+    public void setDob(LocalDateTime dob) {
         this.dob = dob;
     }
 
@@ -70,7 +71,7 @@ public class Employee implements Serializable {
         this.status = status;
     }
 
-    public Employee(int id, String fullName, DateTime dob, String email, String address, EmployeeStatus status) {
+    public Employee(int id, String fullName, LocalDateTime dob, String email, String address, EmployeeStatus status) {
         this.id = id;
         this.fullName = fullName;
         this.dob = dob;

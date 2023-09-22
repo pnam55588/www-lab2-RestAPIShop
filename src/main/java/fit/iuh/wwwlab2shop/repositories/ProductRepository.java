@@ -1,15 +1,15 @@
 package fit.iuh.wwwlab2shop.repositories;
 
-import fit.iuh.wwwlab2shop.enums.EmployeeStatus;
+
 import fit.iuh.wwwlab2shop.enums.ProductStatus;
-import fit.iuh.wwwlab2shop.models.Employee;
 import fit.iuh.wwwlab2shop.models.Product;
 import fit.iuh.wwwlab2shop.models.ProductImage;
 import fit.iuh.wwwlab2shop.models.ProductPrice;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.TypedQuery;
-import org.joda.time.DateTime;
 
+
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class ProductRepository extends GenericCRUD<Product> {
@@ -127,7 +127,8 @@ public class ProductRepository extends GenericCRUD<Product> {
             }
             ProductPrice productPrice = new ProductPrice();
             productPrice.setProduct(product);
-            productPrice.setPriceDateTime(new DateTime()); // now, price time is joda datetime
+            LocalDateTime time = LocalDateTime.now();
+            productPrice.setPriceDateTime(time); // now, price time is joda datetime
             productPrice.setPrice(price);
             em.persist(productPrice);
             tr.commit();
