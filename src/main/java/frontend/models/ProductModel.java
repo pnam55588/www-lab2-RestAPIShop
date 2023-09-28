@@ -30,4 +30,11 @@ public class ProductModel {
         service.create(p);
         resp.sendRedirect("products.jsp");
     }
+
+    public void deleteProduct(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        int id = Integer.parseInt(req.getParameter("id"));
+        System.out.println(id);
+        service.delete(id);
+        resp.sendRedirect("products.jsp");
+    }
 }

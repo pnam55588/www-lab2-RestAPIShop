@@ -28,8 +28,11 @@
             <th>status</th>
             <th colspan="2"><a href="insertProduct.jsp">insert</a></th>
         </tr>
-        <%for(Product p: lst){
-            if(p.getStatus().equals(ProductStatus.IN_BUSINESS)){
+        <%
+            for(Product p: lst){
+//                if(p.getStatus().equals(ProductStatus.IN_BUSINESS)){
+                    int id = p.getId();
+                    String delete_str = "controls?action=delete_product&id="+id;
         %>
             <tr>
                 <td><%=p.getName()%></td>
@@ -38,10 +41,12 @@
                 <td><%=p.getManufacturerName()%></td>
                 <td><%=p.getStatus()%></td>
                 <td><a href="">update</a></td>
-                <td><a href="">delete</a></td>
+                <td><a href=<%=delete_str%> >delete</a></td>
             </tr>
-        <%}
-        }%>
+        <%
+//            }
+        }
+        %>
     </table>
 </body>
 </html>

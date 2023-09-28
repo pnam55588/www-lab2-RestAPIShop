@@ -14,16 +14,29 @@ public class ServletController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action = req.getParameter("action");
+        ProductModel pm = new ProductModel();
         switch (action){
             case "insert_product":
-                ProductModel pm = new ProductModel();
                 pm.insertProduct(req, resp);
                 break;
+            case "delete_product":
+                pm.deleteProduct(req,resp);
+                break;
+            default:
+                resp.sendRedirect("index.jsp");
         }
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doGet(req, resp);
+        String action = req.getParameter("action");
+        ProductModel pm = new ProductModel();
+        switch (action){
+            case "delete_product":
+                pm.deleteProduct(req,resp);
+                break;
+            default:
+                resp.sendRedirect("index.jsp");
+        }
     }
 }

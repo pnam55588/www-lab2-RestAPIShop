@@ -109,6 +109,7 @@ public class ProductRepository extends GenericCRUD<Product> {
             }
             product.setStatus(ProductStatus.OUT_OF_BUSINESS);
             em.merge(product);
+            tr.commit();
             return true;
         }catch (Exception e){
             tr.rollback();
