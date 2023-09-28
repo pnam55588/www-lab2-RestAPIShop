@@ -8,9 +8,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>
-        <a href="http://localhost:8080/api/employee"></a>
-    </h1>
-
+    <a href="products.jsp">product list</a>
 </body>
 </html>
