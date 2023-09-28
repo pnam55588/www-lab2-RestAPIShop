@@ -58,6 +58,7 @@ public abstract class GenericCRUD <T> {
             if(!tr.isActive())
                 tr.begin();
             em.merge(t);
+            tr.commit();
             return true;
         }catch (Exception e){
             tr.rollback();

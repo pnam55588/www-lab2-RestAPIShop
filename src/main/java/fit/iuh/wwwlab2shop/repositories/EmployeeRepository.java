@@ -42,6 +42,7 @@ public class EmployeeRepository extends GenericCRUD<Employee>{
                 if(empStatus != EmployeeStatus.TERMINATED){
                     employee.setStatus(EmployeeStatus.TERMINATED);
                     em.merge(employee);
+                    tr.commit();
                 }else {
                     return false;
                 }

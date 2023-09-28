@@ -82,6 +82,7 @@ public class ProductRepository extends GenericCRUD<Product> {
                 if(productStatus != ProductStatus.IN_BUSINESS){
                     product.setStatus(ProductStatus.IN_BUSINESS);
                     em.merge(product);
+                    tr.commit();
                 }else {
                     return false;
                 }
