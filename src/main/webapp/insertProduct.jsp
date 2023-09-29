@@ -11,6 +11,11 @@
     <title>insert product</title>
 </head>
 <body>
+<nav>
+    <a href="products.jsp">product list</a>
+    <a href="orders.jsp">order list</a>
+    <a href="carts.jsp">carts</a>
+</nav>
     <h1 align="center">Insert Product</h1>
     <div align="center">
         <form action="controls?action=insert_product" method="post">

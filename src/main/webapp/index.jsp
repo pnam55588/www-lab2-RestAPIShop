@@ -8,6 +8,13 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="products.jsp">product list</a>
+
+    <nav>
+        <a href="products.jsp">product list</a>
+        <a href="orders.jsp">order list</a>
+        <a href="carts.jsp">carts</a>
+    </nav>
+
+
 </body>
 </html>

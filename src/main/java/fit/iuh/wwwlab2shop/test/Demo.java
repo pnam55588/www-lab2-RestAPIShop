@@ -36,8 +36,7 @@ public class Demo {
 //        res.addImages(2,paths);
 //        List<ProductImage> productImages = res.getImages(2);
 //        productImages.forEach(pi -> System.out.println(pi));
-        res.updatePrice(2, 323);
-        ProductPrice productPrice = res.getPrice(2);
+        res.updatePrice(4, 222);
     }
 
 }

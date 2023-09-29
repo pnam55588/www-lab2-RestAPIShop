@@ -15,6 +15,11 @@
     <title>edit product</title>
 </head>
 <body>
+    <nav>
+        <a href="products.jsp">product list</a>
+        <a href="orders.jsp">order list</a>
+        <a href="carts.jsp">carts</a>
+    </nav>
     <%
         ProductService service = new ProductServiceImpl();
         int id = Integer.parseInt(request.getParameter("id"));

@@ -53,4 +53,6 @@ public class ProductModel {
         service.update(p);
         resp.sendRedirect("products.jsp");
     }
+
+
 }

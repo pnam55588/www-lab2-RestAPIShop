@@ -66,7 +66,7 @@ public class ProductRepository extends GenericCRUD<Product> {
             return price;
         }catch (Exception e){
             tr.rollback();
-            throw new RuntimeException(e.getMessage());
+            return null;
         }
     }
 
