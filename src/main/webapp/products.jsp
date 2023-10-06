@@ -47,7 +47,7 @@
                     String edit_str = "editProduct.jsp?id="+id;
                     String addToCarts_str = "controls?action=add_to_carts&id="+id;
                     ProductPrice productPrice = productService.getPrice(id);
-                    double price = productPrice!=null ? productPrice.getPrice() : 0;
+                    double price = productPrice!=null ? productPrice.getPrice() : 0.0;
         %>
             <tr>
                 <td><%=p.getId()%></td>

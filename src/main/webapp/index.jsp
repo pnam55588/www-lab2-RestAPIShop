@@ -8,13 +8,14 @@
     <title>Document</title>
 </head>
 <body>
-
-    <nav>
-        <a href="products.jsp">product list</a>
-        <a href="orders.jsp">order list</a>
-        <a href="carts.jsp">carts</a>
-    </nav>
-
+    <h1 align="center">LOGIN</h1>
+    <div align="center">
+        <form action="controls?action=login" method="post">
+            email: <input name="email">
+            <input type="submit">
+        </form>
+        <a href="insertEmployee.jsp" >insert employee</a>
+    </div>
 
 </body>
 </html>

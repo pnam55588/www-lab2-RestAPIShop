@@ -21,13 +21,15 @@ public class ProductModel {
         String unit = req.getParameter("unit");
         String manufacturerName = req.getParameter("manufacturerName");
         String status = req.getParameter("status");
+        double price = Double.parseDouble(req.getParameter("price"));
         Product p = new Product();
         p.setName(name);
         p.setDescription(description);
-        p.setUnit(Integer.parseInt(unit));
+        p.setUnit(unit);
         p.setManufacturerName(manufacturerName);
         p.setStatus(ProductStatus.valueOf(status));
         service.create(p);
+        service.updatePrice(p.getId(), price);
         resp.sendRedirect("products.jsp");
     }
 
@@ -39,18 +41,22 @@ public class ProductModel {
     }
 
     public void updateProduct(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        int id = Integer.parseInt(req.getParameter("id"));
         String name = req.getParameter("name");
         String description = req.getParameter("description");
         String unit = req.getParameter("unit");
         String manufacturerName = req.getParameter("manufacturerName");
         String status = req.getParameter("status");
+        double price = Double.parseDouble(req.getParameter("price"));
         Product p = new Product();
+        p.setId(id);
         p.setName(name);
         p.setDescription(description);
-        p.setUnit(Integer.parseInt(unit));
+        p.setUnit(unit);
         p.setManufacturerName(manufacturerName);
         p.setStatus(ProductStatus.valueOf(status));
         service.update(p);
+        service.updatePrice(p.getId(), price);
         resp.sendRedirect("products.jsp");
     }
 

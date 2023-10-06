@@ -11,4 +11,6 @@ public interface EmployeeService{
     public Employee findById(int id);
     public boolean activeEmployee(int id);
     public boolean delete(int id);
+
+    public Employee findByEmail(String email);
 }

@@ -15,7 +15,7 @@ public class Product implements Serializable {
     private int id;
     private String name;
     private String description;
-    private int unit;
+    private String unit;
     @Column(name = "manufacturer_name")
     private String manufacturerName;
     private ProductStatus status;
@@ -44,11 +44,11 @@ public class Product implements Serializable {
         this.description = description;
     }
 
-    public int getUnit() {
+    public String getUnit() {
         return unit;
     }
 
-    public void setUnit(int unit) {
+    public void setUnit(String unit) {
         this.unit = unit;
     }
 
@@ -68,7 +68,7 @@ public class Product implements Serializable {
         this.status = status;
     }
 
-    public Product(int id, String name, String description, int unit, String manufacturerName, ProductStatus status) {
+    public Product(int id, String name, String description, String unit, String manufacturerName, ProductStatus status) {
         this.id = id;
         this.name = name;
         this.description = description;

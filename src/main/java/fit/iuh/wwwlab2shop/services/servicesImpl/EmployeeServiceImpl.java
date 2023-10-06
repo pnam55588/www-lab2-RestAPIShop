@@ -40,4 +40,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public boolean delete(int id){ return employeeRepository.delete(id);}
+
+    @Override
+    public Employee findByEmail(String email) {
+        return employeeRepository.findByEmail(email);
+    }
 }

@@ -2,6 +2,7 @@
 <%@ page import="fit.iuh.wwwlab2shop.services.ProductService" %>
 <%@ page import="fit.iuh.wwwlab2shop.services.servicesImpl.ProductServiceImpl" %>
 <%@ page import="fit.iuh.wwwlab2shop.enums.ProductStatus" %>
+<%@ page import="fit.iuh.wwwlab2shop.models.ProductPrice" %>
 <%--
   Created by IntelliJ IDEA.
   User: phgss
@@ -25,14 +26,17 @@
         int id = Integer.parseInt(request.getParameter("id"));
         Product p = service.findById(id);
         ProductStatus status = p.getStatus();
+        ProductPrice price = service.getPrice(id);
     %>
     <h1 align="center">Update Product</h1>
     <div align="center">
         <form action="controls?action=edit_product" method="post">
+            id: <input name="id" value="<%=p.getId()%>" readonly><br>
             name: <input name="name" value="<%=p.getName()%>" ><br>
             description: <input name="description" value="<%=p.getDescription()%>"> <br>
-            unit: <input type="number" name="unit" value="<%=p.getUnit()%>"> <br>
+            unit: <input name="unit" value="<%=p.getUnit()%>"> <br>
             manufacturer name: <input name="manufacturerName" value="<%=p.getManufacturerName()%>"> <br>
+            price:  <input type="number" name="price" value="<%=price.getPrice()%>" required> <br>
             status: <select name="status">
             <option value="IN_BUSINESS" <%if(status.equals(ProductStatus.IN_BUSINESS)){%>selected="true"<%}%>>IN_BUSINESS</option>
             <option value="PAUSED" <%if(status.equals(ProductStatus.PAUSED)){%>selected="true"<%}%>>PAUSED</option>

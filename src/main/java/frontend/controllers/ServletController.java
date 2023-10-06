@@ -1,5 +1,6 @@
 package frontend.controllers;
 
+import frontend.models.EmployeeModel;
 import frontend.models.OrderModel;
 import frontend.models.ProductModel;
 import jakarta.servlet.ServletException;
@@ -18,6 +19,7 @@ public class ServletController extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action = req.getParameter("action");
         ProductModel pm = new ProductModel();
+        EmployeeModel em = new EmployeeModel();
         switch (action){
             case "insert_product":
                 pm.insertProduct(req, resp);
@@ -27,6 +29,12 @@ public class ServletController extends HttpServlet {
                 break;
             case "edit_product":
                 pm.updateProduct(req,resp);
+                break;
+            case "login":
+                em.validate(req,resp);
+                break;
+            case "insert_employee":
+                em.insertEmployee(req,resp);
                 break;
             default:
                 resp.sendRedirect("index.jsp");
@@ -51,6 +59,9 @@ public class ServletController extends HttpServlet {
             case "buy_product":
                 om.buyProduct(req,resp);
                 deleteCart(req,resp);
+                break;
+            case "buy_all":
+                om.buyProducts(req,resp);
                 break;
             default:
                 resp.sendRedirect("index.jsp");

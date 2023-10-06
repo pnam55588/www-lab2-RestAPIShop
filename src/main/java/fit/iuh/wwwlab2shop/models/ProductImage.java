@@ -12,7 +12,7 @@ public class ProductImage implements Serializable {
     @JoinColumn(name = "product_id")
     private Product product;
     @Id
-    @JoinColumn(name = "image_id")
+    @Column(name = "image_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String path;

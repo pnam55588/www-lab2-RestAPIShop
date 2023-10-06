@@ -3,6 +3,7 @@ package fit.iuh.wwwlab2shop.repositories;
 import fit.iuh.wwwlab2shop.enums.EmployeeStatus;
 import fit.iuh.wwwlab2shop.models.Employee;
 import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.TypedQuery;
 
 public class EmployeeRepository extends GenericCRUD<Employee>{
     public boolean activeEmployee(int id) {
@@ -53,6 +54,22 @@ public class EmployeeRepository extends GenericCRUD<Employee>{
         }catch (Exception e){
             tr.rollback();
             throw new RuntimeException(e.getMessage());
+        }
+    }
+
+    public Employee findByEmail(String email) {
+        EntityTransaction tr = em.getTransaction();
+        try {
+            if(!tr.isActive()){
+                tr.begin();
+            }
+            TypedQuery<Employee> query = em.createQuery("SELECT em FROM Employee em where em.email= :email", Employee.class);
+            query.setParameter("email", email);
+            query.setMaxResults(1);
+            return query.getSingleResult();
+        }catch (Exception e){
+            tr.rollback();
+            return null;
         }
     }
 }

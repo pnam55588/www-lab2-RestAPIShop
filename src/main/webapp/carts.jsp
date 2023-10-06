@@ -3,7 +3,9 @@
 <%@ page import="fit.iuh.wwwlab2shop.services.servicesImpl.ProductServiceImpl" %>
 <%@ page import="fit.iuh.wwwlab2shop.models.Product" %>
 <%@ page import="java.util.Map" %>
-<%@ page import="fit.iuh.wwwlab2shop.models.ProductPrice" %><%--
+<%@ page import="fit.iuh.wwwlab2shop.models.ProductPrice" %>
+
+<%--
   Created by IntelliJ IDEA.
   User: phgss
   Date: 9/28/2023
@@ -24,7 +26,8 @@
     </nav>
     <%
         Map<Integer, Integer> carts = (Map<Integer, Integer>)session.getAttribute("carts");
-        ProductService service = new ProductServiceImpl();
+        ProductService productService= new ProductServiceImpl();
+
     %>
     <h1 align="center">Carts</h1>
     <div>
@@ -39,7 +42,7 @@
                 <th>manufacturer name</th>
                 <th>status</th>
                 <th colspan="2">
-                    <a href="">buy all</a>
+                    <a href="controls?action=buy_all">buy all</a>
                 </th>
             </tr>
             <%
@@ -47,8 +50,8 @@
                 for(Map.Entry<Integer,Integer> entry :carts.entrySet()){
                     int id = entry.getKey();
                     int quantity = entry.getValue();
-                    Product p = service.findById(entry.getKey());
-                    ProductPrice productPrice = service.getPrice(id);
+                    Product p = productService.findById(entry.getKey());
+                    ProductPrice productPrice = productService.getPrice(id);
                     double price = productPrice!=null ? productPrice.getPrice() : 0;
                     String delete_str = "controls?action=delete_cart&id="+id;
                     String buy_str ="controls?action=buy_product&id="+id+"&quantity="+quantity+"&price="+price;

@@ -22,8 +22,7 @@ public class ProductRepository extends GenericCRUD<Product> {
             TypedQuery<Product> query = em.createQuery("SELECT p FROM Product p", Product.class);
             query.setFirstResult((page - 1) * limit);
             query.setMaxResults(limit);
-            List<Product> products = query.getResultList();
-            return products;
+            return query.getResultList();
         }catch (Exception e){
             tr.rollback();
             throw new RuntimeException(e.getMessage());
@@ -61,6 +60,7 @@ public class ProductRepository extends GenericCRUD<Product> {
                     ProductPrice.class
             );
             query.setParameter("id",id);
+            query.setMaxResults(1);
             ProductPrice price = query.getSingleResult();
             tr.commit();
             return price;

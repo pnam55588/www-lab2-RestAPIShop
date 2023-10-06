@@ -19,10 +19,11 @@
     <h1 align="center">Insert Product</h1>
     <div align="center">
         <form action="controls?action=insert_product" method="post">
-            name: <input name="name"> <br>
+            name: <input name="name" required> <br>
             description: <input name="description"> <br>
-            unit: <input type="number" name="unit"> <br>
+            unit: <input name="unit" required> <br>
             manufacturer name: <input name="manufacturerName"> <br>
+            price:  <input type="number" name="price" required> <br>
             status: <select name="status">
             <option selected="true" value="IN_BUSINESS">IN_BUSINESS</option>
             <option value="PAUSED">PAUSED</option>

@@ -41,8 +41,8 @@
         %>
         <tr>
             <td><%=o.getId()%></td>
-            <td><%=o.getCustomer().getCustName()%></td>
-            <td><%=o.getEmployee().getFullName()%></td>
+            <td><%=o.getCustomer()!=null?o.getCustomer().getCustName():null%></td>
+            <td><%=o.getEmployee()!=null?o.getEmployee().getFullName():null%></td>
             <td><%=o.getOrderDate()%></td>
             <td><a href=<%=detail_str%>>detail</a></td>
         </tr>

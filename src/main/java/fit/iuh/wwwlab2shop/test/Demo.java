@@ -21,10 +21,14 @@ import java.util.List;
 public class Demo {
 
     public static void main(String[] args) {
+//        EntityManager em = JPAConnection.getInstance().getEm();
         ProductRepository res = new ProductRepository();
+        ProductPrice productPrice = res.getPrice(13);
+        System.out.println(productPrice);
 //        Product product = new Product();
-//        product.setName("xe may"); product.setUnit(200); product.setStatus(ProductStatus.IN_BUSINESS);
-//        res.create(product);
+//        product.setId(10);
+//        product.setName("xe may"); product.setUnit("xe"); product.setStatus(ProductStatus.IN_BUSINESS);
+//        res.update(product);
 //        res.delete(2);
 //        List<Product> products = res.getAll(Product.class);
 //        products.forEach(p -> System.out.println(p));
@@ -36,7 +40,7 @@ public class Demo {
 //        res.addImages(2,paths);
 //        List<ProductImage> productImages = res.getImages(2);
 //        productImages.forEach(pi -> System.out.println(pi));
-        res.updatePrice(4, 222);
+//        res.updatePrice(4, 222);
     }
 
 }
